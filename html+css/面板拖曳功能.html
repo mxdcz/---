@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+
+            overflow: hidden;
+        }
+
+        .drag {
+            height: 50px;
+            background: #000;
+        }
+    </style>
+    <script src="common/common-lim.js"></script>
+</head>
+<body>
+<p id="mouse"></p>
+<p id="offset"></p>
+<p id="mlmt"></p>
+<p id="lefttop"></p>
+<div class="box" id="box">
+    <div class="drag" id="drag"></div>
+</div>
+</body>
+<script>
+    var drag = $("drag");
+    var box = $("box");
+
+    drag.onmousedown = Drag;
+    drag.onmouseup = function () {
+        document.onmousemove = null;
+        document.onmouseup = null;
+    };
+
+    function Drag(e) {
+        var ml = e.clientX - box.offsetLeft;
+        var mt = e.clientY - box.offsetTop;
+        var maxW = document.body.clientWidth || document.documentElement.clientWidth;
+        var maxH = document.body.clientHeight || document.documentElement.clientHeight;
+        document.onmousemove = function (e) {
+
+            var l = e.clientX - ml;
+            var t = e.clientY - mt;
+
+            if (l < 0) {
+                l = 0;
+            } else if (l > maxW - box.offsetWidth) {
+                l = maxW - box.offsetWidth;
+            }
+
+
+            if (t < 0) {
+                t = 0;
+            }else if (t > maxH - box.offsetHeight) {
+                t = maxH - box.offsetHeight;
+            }
+            box.style.left = l + "px";
+            box.style.top = t + "px";
+        }
+
+        document.onmouseup = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+
+    }
+
+</script>
+</html>

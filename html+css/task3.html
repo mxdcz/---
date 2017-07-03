@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            padding:20px;
+        }
+        .box{
+            width: 100%;;
+            background: #eee;
+            border: 1px solid #999;
+            box-sizing: border-box;
+            min-height: 460px;
+
+            /*浮动法*/
+            /*padding:20px;*/
+
+
+            /*绝对定位法*/
+            position: relative;
+        }
+
+        .left{
+            width: 200px;
+            border: 1px solid #999;
+            padding:20px;
+            box-sizing: border-box;
+            background: #fff;
+
+            /*浮动法*/
+            /*float: left;*/
+
+            /*绝对定位法*/
+            position: absolute;
+            top: 20px;
+            left: 20px;
+
+
+        }
+        .left img{
+            width:80px;
+            height: 80px;
+            background: #eee;
+        }
+        .left span{
+            padding-left:9px;
+            vertical-align: top;
+        }
+
+        .center{
+            border: 1px solid #999;
+            padding:20px;
+            box-sizing: border-box;
+            background: #fff;
+            margin:0 160px 0 240px;
+
+            /*绝对定位法*/
+            position: absolute;
+            top:20px;
+
+        }
+
+
+
+
+
+
+        .right{
+            width: 120px;
+            padding:20px;
+            text-align: center;
+            background: #fff;
+            box-sizing: border-box;
+
+            /*浮动法*/
+            /*float: right;*/
+
+            /*绝对定位法*/
+            position: absolute;
+            top: 20px;
+            right: 20px;
+
+
+
+        }
+        .right img{
+            width:80px;
+            height: 80px;
+            margin-bottom:20px;
+            background: #eee;
+        }
+        .right img:last-child{
+            margin-bottom:0px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="left">
+        <img src="" alt="">
+        <span>团队名称</span>
+    </div>
+
+    <div class="right">
+        <img src="" alt="">
+        <img src="" alt="">
+        <img src="" alt="">
+        <img src="" alt="">
+    </div>
+    <div class="center">
+        关于你们团队的介绍。
+        可以给我们解释一下团队名称的来历，或是分别介绍你们团队的成员
+        (以下为示例)
+        百度WEB前段技术学院(Baidu Institute of Front-End Technology简称IFE)是一个由百度人力组员部校园招聘组、百度EFE团队联合出品的、面向在校大学生一级对前段技术有兴趣的前段在线学习平台
+        百度WEB前段技术学院(Baidu Institute of Front-End Technology简称IFE)是一个由百度人力组员部校园招聘组、百度EFE团队联合出品的、面向在校大学生一级对前段技术有兴趣的前段在线学习平台
+        百度WEB前段技术学院(Baidu Institute of Front-End Technology简称IFE)是一个由百度人力组员部校园招聘组、百度EFE团队联合出品的、面向在校大学生一级对前段技术有兴趣的前段在线学习平台
+        百度WEB前段技术学院(Baidu Institute of Front-End Technology简称IFE)是一个由百度人力组员部校园招聘组、百度EFE团队联合出品的、面向在校大学生一级对前段技术有兴趣的前段在线学习平台
+    </div>
+</div>
+</body>
+</html>

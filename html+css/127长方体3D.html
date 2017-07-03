@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        div{
+            perspective: 500px;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+
+            /* 暂且得到的结论perspective的视角以中心为视点  所以要居中 */
+            margin: 100px auto;
+
+            /*配合子元素的绝对定位*/
+            position: relative;
+
+            /*3d*/
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+
+            /*X轴旋转*/
+            animation: move1 5s linear 0s infinite normal;
+
+        }
+        @keyframes move1 {
+            from{
+                transform: rotateX(0deg);
+            }
+            to{
+                transform: rotateX(360deg);
+            }
+        }
+        ul li{
+            list-style:none;
+            width: 200px;
+            height: 200px;
+            font-size:50px;
+            text-align: center;
+            line-height:200px;
+
+            /*使各个面定位的左上角 以便于旋转调整*/
+            position: absolute;
+            left:0;
+            top: 0;
+        }
+        ul li:nth-child(1){
+            background: blue;
+            transform: rotateX(90deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(2){
+            background: red;
+            transform: rotateX(180deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(3){
+            background: darkorange;
+            transform: rotateX(270deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(4){
+            background: gray;
+            transform: rotateX(360deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(5){
+            background: green;
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+        ul li:nth-child(6){
+            background: yellow;
+            transform: rotateY(90deg) translateZ(200px);
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+</body>
+</html>

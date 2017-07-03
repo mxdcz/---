@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .tooltip-box {
+            display: inline;
+            padding: 20px;
+            border: 1px solid #90d3d9;
+            box-shadow: 0 0 5px #90d3d9;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+<body>
+<p>top了解是一个非常科技的开发四大皆
+    <a id="tooltip_a" href="javascript:">tooltip超链接</a>
+    空飞库空间的是打开放的四季豆
+</p>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+    function Tooltip(content) {
+        this.content = content;
+    }
+    Tooltip.prototype = {
+        show: function () {
+            var a = $('#tooltip_a');
+            var eDiv = $('<div id="tooltip_a_div" class="tooltip-box"></div>');
+            var that = this;
+            $(a).mouseenter(function () {
+
+                $(eDiv).html(that.content);
+                var ol = $(this).offset().left;
+                var ot = $(this).offset().top;
+                var oh = $(this).height();
+                eDiv.css({"left": ol + "px", "top": ot + oh + "px"});
+                $(this).append(eDiv);
+            });
+            $(a).mouseleave(function () {
+                $(eDiv).remove();
+            });
+        }
+    }
+
+
+
+    var t = new Tooltip("这是tooltip超链接的提示信息");
+    t.show();
+</script>
+</body>
+</html>

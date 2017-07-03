@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .mb10 {
+            margin-bottom: 10px;
+        }
+
+        .mt10 {
+            margin-top: 10px;
+        }
+
+        .pl10 {
+            padding-left: 10px;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .clr {
+            clear: both;
+        }
+
+        .wrap {
+            width: 1280px;
+            height: 4554px;
+            margin: 0 auto;
+        }
+
+        .header {
+            width: 100%;
+            height: 57px;
+            background: #fff;
+            padding: 0 59px;
+            box-sizing: border-box;
+        }
+
+        .header .header-left {
+            float: left;
+            font-size: 24px;
+            line-height: 57px;
+        }
+
+        .header .header-left img {
+            width: 31px;
+            vertical-align: middle;
+        }
+
+        .header .header-right {
+            float: right;
+        }
+
+        .header .header-right ul {
+            list-style: none;
+        }
+
+        .header .header-right ul li {
+            width: 65px;
+            display: inline-block;
+            text-align: center;
+            margin-right: 30px;
+        }
+
+        .header .header-right ul li:last-child a {
+            color: #e46e77;
+        }
+
+        .header .header-right ul li:hover {
+            border-bottom: 5px solid #e46e77;
+        }
+
+        .header .header-right ul li:hover a {
+            color: #e46e77;
+        }
+
+        .header .header-right ul li a {
+            text-decoration: none;
+            color: black;
+            line-height: 52px;
+        }
+
+        .header .header-right ul li a img {
+            vertical-align: middle;
+        }
+
+        .logo {
+            width: 1280px;
+            height: 690px;
+            background: url(images/task_1_7_big_03.jpg) 0 0 no-repeat;
+        }
+
+        .logo a {
+            display: block;
+            width: 330px;
+            height: 63px;
+            background: url(images/task_1_7_start_btn_03.jpg) 0 0 no-repeat;
+
+            position: relative;
+            left: 125px;
+            top: 420px;
+        }
+
+        .list {
+            height: 249px;
+            /*background: blue;*/
+        }
+
+        .list .sub-list {
+            width: 320px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .list .sub-list .img-wrap {
+            width: 320px;
+            height: 133px;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .list .sub-list p {
+            text-align: center;
+            color: #ccc;
+            border-right: 2px solid #ccc;
+        }
+
+        .list .sub-list p.clr-bd {
+            border-right: none;
+        }
+
+        .question {
+            height: 360px;
+            background: #dfdfdf;
+            text-align: center;
+            padding-top: 90px;
+            box-sizing: border-box;
+        }
+
+        .question p {
+            font-size: 50px;
+            color: #a2a2a2;
+            margin-top: 55px;
+        }
+
+        .dropmenu {
+            height: 340px;
+            background: url(images/lookmap.jpg) 0 0 no-repeat;
+
+            position: relative;
+        }
+
+        .dropmenu .bg-op {
+            width: 100%;
+            height: 340px;
+            background: #a93433;
+            opacity: 0.2;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .dropmenu .menu {
+            position: absolute;
+
+            left: 5%;
+            top: 50%;
+        }
+
+        .dropmenu .menu select {
+            width: 236px;
+            height: 36px;
+            border: 1px solid #ccc;
+            color: #ccc;
+            padding-left: 10px;
+            margin-right: 30px;
+
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            background: #fff url(images/task_1_7_selectdrop_03.png) 210px center no-repeat;
+        }
+
+        .dropmenu .menu select option {
+            color: #959595;
+            background: #dedede;
+        }
+
+        .dropmenu .menu button {
+            width: 236px;
+            height: 36px;
+            background: #bd4e48;
+            border: none;
+            color: #fff;
+        }
+
+        .events {
+            height: 605px;
+            background: #f7f7f7;
+            padding: 148px 148px;
+            box-sizing: border-box;
+        }
+
+        .events .photo-list {
+            width: 219px;
+            text-align: center;
+            margin-right: 27px;
+            float: left;
+        }
+
+        .events .photo-list .photo-bd {
+            width: 219px;
+            height: 337px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 10px;
+            background: #fff;
+            display: table-cell;
+            vertical-align: middle;
+
+        }
+
+        .events .photo-list p {
+            font-size: 12px;
+            color: #e0e0e0;
+        }
+
+        .newworld .nw-left {
+            width: 850px;
+            height: 565px;
+            background: url(images/mainbody5.png) 0 0 no-repeat;
+            color: #fff;
+            /*padding-top:120px;*/
+
+            position: relative;
+        }
+
+        .newworld .nw-left::after {
+            content: "";
+            border-top: 30px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-right: 30px solid #FFFFFF;
+
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -15px;
+        }
+
+        .newworld .nw-left p:nth-child(1) {
+            font-size: 50px;
+            text-align: center;
+
+            margin-top: 120px;
+        }
+
+        .newworld .nw-left p:nth-child(2) {
+            font-size: 150px;
+            text-align: center;
+        }
+
+        .newworld .nw-left p:nth-child(3) {
+            font-size: 20px;
+            margin-left: 41%;
+        }
+
+        .newworld .nw-right {
+            width: 430px;
+            height: 565px;
+        }
+
+        .newworld .nw-right span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #000;
+        }
+
+        .newtimes {
+            height: 520px;
+            background: #000;
+        }
+
+        .main .volunteer {
+            height: 300px;
+            /*background: red;*/
+        }
+
+        .main .form-warp {
+            height: 448px;
+
+            padding: 0 138px;
+        }
+
+        .main .form-warp .agreement {
+            float: left;
+        }
+
+        .main .form-warp .agreement div {
+            width: 289px;
+            height: 92px;
+
+            position: relative;
+        }
+
+        .main .form-warp .agreement div h4 {
+            color: #646263;
+        }
+
+        .main .form-warp .agreement div p {
+            color: #9d9d9d;
+            font-size: 12px;
+        }
+
+        .main .form-warp .agreement div span {
+            display: inline-block;
+            width: 45px;
+            height: 11px;
+            background: url(images/xiajiantou.png) 0 center no-repeat;
+            padding-left: 11px;
+            font-size: 11px;
+            color: #9d9d9d;
+            line-height: 11px;
+            box-sizing: border-box;
+
+            position: absolute;
+            right: 1px;
+            bottom: 1px;
+        }
+
+        .main .form-warp .form {
+            width: 639px;
+            height: 283px;
+            /*background: #000;*/
+            float: right;
+        }
+        .main .form-warp .form input,textarea{
+            background: #ececee;
+            border: none;
+            box-sizing: border-box;
+        }
+        .main .form-warp .form .input-txt {
+            width: 311px;
+            height: 41px;
+            display: inline-block;
+
+        }
+        
+        .main .form-warp .form .submit {
+            width: 639px;
+            height: 41px;
+        }
+        
+        .contact{
+            height: 361px;
+            background: #32363e;
+        }
+        
+        .footer{
+            height: 58px;
+            background: #2f3038;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+        <div class="header-left">
+            <img src="images/task_1_7_header_03.png" alt="">
+            新世界
+        </div>
+        <div class="header-right">
+            <ul>
+                <li><a href="javascript:">首页</a></li>
+                <li><a href="javascript:">最新活动</a></li>
+                <li><a href="javascript:">项目介绍</a></li>
+                <li><a href="javascript:">爱心社区</a></li>
+                <li><a href="javascript:">关于我们</a></li>
+                <li><a href="javascript:"><img src="images/task_1_7_login_03.jpg" alt=""> 登录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="logo">
+        <a href="javascript:"></a>
+    </div>
+    <div class="list">
+        <div class="sub-list">
+            <div class="img-wrap">
+                <img src="images/task_1_7_listimg1_03.jpg">
+            </div>
+            <p>打造全新世界观,让你更<br>爱你的生活</p>
+        </div>
+        <div class="sub-list">
+            <div class="img-wrap">
+                <img src="images/task_1_7_listimg1_03.jpg">
+            </div>
+            <p>打造全新世界观,让你更<br>爱你的生活</p>
+        </div>
+        <div class="sub-list">
+            <div class="img-wrap">
+                <img src="images/task_1_7_listimg1_03.jpg">
+            </div>
+            <p>打造全新世界观,让你更<br>爱你的生活</p>
+        </div>
+        <div class="sub-list">
+            <div class="img-wrap">
+                <img src="images/task_1_7_listimg1_03.jpg">
+            </div>
+            <p class="clr-bd">打造全新世界观,让你更<br>爱你的生活</p>
+        </div>
+    </div>
+    <div class="question">
+        <img src="images/task_1_7_header_03.png" alt="">
+        <p>关于新世界,你不知道的还有什么?</p>
+    </div>
+    <div class="dropmenu">
+        <div class="bg-op"></div>
+        <div class="menu">
+            <select name="country">
+                <option value="">中国</option>
+                <option value="">美国</option>
+                <option value="">日本</option>
+                <option value="">韩国</option>
+            </select>
+            <select name="city1">
+                <option value="">浙江</option>
+                <option value="">北京</option>
+                <option value="">上海</option>
+                <option value="">内蒙古</option>
+            </select>
+            <select name="city2">
+                <option value="">杭州</option>
+                <option value="">温州</option>
+                <option value="">永嘉</option>
+                <option value="">乐清</option>
+            </select>
+            <button>搜 索</button>
+        </div>
+
+    </div>
+    <div class="events">
+        <div class="photo-list">
+            <div class="photo-bd mb10">
+                <img src="images/event_photo1.png" alt="">
+            </div>
+            <h4 class="mt10 mb10">北京活动</h4>
+            <p>新社区大联盟</p>
+        </div>
+        <div class="photo-list">
+            <div class="photo-bd mb10">
+                <img src="images/event_photo1.png" alt="">
+            </div>
+            <h4 class="mt10 mb10">北京活动</h4>
+            <p>新社区大联盟</p>
+        </div>
+        <div class="photo-list">
+            <div class="photo-bd mb10">
+                <img src="images/event_photo1.png" alt="">
+            </div>
+            <h4 class="mt10 mb10">北京活动</h4>
+            <p>新社区大联盟</p>
+        </div>
+        <div class="photo-list">
+            <div class="photo-bd mb10">
+                <img src="images/event_photo1.png" alt="">
+            </div>
+            <h4 class="mt10 mb10">北京活动</h4>
+            <p>新社区大联盟</p>
+        </div>
+
+
+    </div>
+    <div class="newworld">
+        <div class="nw-left fl">
+            <p>新世界</p>
+            <p>TIME</p>
+            <p>@新世界 - 北京<br>2016.04.01</p>
+        </div>
+        <div class="nw-right fr">
+            <h2>新世界/01</h2>
+            <p>新世界是个新世界新世界是个新世界新世界是个新世界
+                新世界是个新世界新世界是个新世界新世界是个新世界
+                新世界是个新世界新世界是个新世界新世界是个新世界
+                新世界是个新世界新世界是个新世界</p>
+            <div>更多详情</div>
+            <div>
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+    <div class="clr"></div>
+    <div class="newtimes"></div>
+    <div class="main">
+        <div class="volunteer"></div>
+        <div class="form-warp">
+            <div class="agreement">
+                <div class="mb10">
+                    <h4 class="mb10">新世界志愿者协议</h4>
+                    <p>加入新世界志愿者的人员必须遵守中华人民共共和国的相关法律法规，并且本着平等资源的原则 ......</p>
+                    <span>more</span>
+                </div>
+                <div class="mb10">
+                    <h4 class="mb10">新世界志愿者权利</h4>
+                    <p>新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在四新世界活动的优先参与资格</p>
+                    <span>more</span>
+                </div>
+                <div>
+                    <h4>更多条款</h4>
+                    <span>more</span>
+                </div>
+            </div>
+            <div class="form">
+                <div class="mb10">
+                    <input class="input-txt pl10" type="text" value="姓名:">
+                    <input class="input-txt pl10" type="text" value="年龄:">
+                </div>
+                <div class="mb10">
+                    <input class="input-txt pl10" type="text" value="联系方式:">
+                    <input class="input-txt pl10" type="text" value="联系地址:">
+                </div>
+                <div class="mb10">
+                    <textarea class="pl10" name="" id="" cols="87" rows="10">请简单描述您梦想的生活:
+                    </textarea>
+                </div>
+                <div>
+                    <input class="submit" type="submit" value="提交申请">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="contact"></div>
+    <div class="footer"></div>
+
+</div>
+
+</body>
+</html>

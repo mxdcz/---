@@ -1,0 +1,93 @@
+​<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+        /*.flex*/
+        /*{*/
+            /*!* 基本样式 *!*/
+            /*width: 350px;*/
+            /*height: 200px;*/
+            /*border: 1px solid #555;*/
+            /*font: 14px Arial;*/
+
+            /*!*  建立弹性框 *!*/
+            /*display: -webkit-flex;*/
+            /*-webkit-flex-direction: row;*/
+
+            /*display: flex;*/
+            /*flex-direction: row;*/
+        /*}*/
+
+        /*.flex > div*/
+        /*{*/
+            /*-webkit-flex: 1 1 auto;*/
+            /*flex: 1 1 auto;*/
+
+            /*width: 30px; !* 让过渡表现良好。（从/到"width:auto"的过渡*/
+                      /*至少在 Gecko 和 Webkit 上是有 bug 的。*/
+                      /*更多信息参见 http://bugzil.la/731886 ） *!*/
+
+            /*-webkit-transition: width 0.7s ease-out;*/
+            /*transition: width 0.7s ease-out;*/
+        /*}*/
+
+        /*!* colors *!*/
+        /*.flex > div:nth-child(1){ background : #009246; }*/
+        /*.flex > div:nth-child(2){ background : #F1F2F1; }*/
+        /*.flex > div:nth-child(3){ background : #CE2B37; }*/
+
+        /*.flex > div:hover*/
+        /*{*/
+            /*width: 200px;*/
+        /*}*/
+
+        li{
+            list-style:none;
+        }
+        .flex-container{
+            display:  -webkit-flex;
+            /*flex-flow: row;*/
+            flex-direction: row;
+            -webkit-flex-direction: row;
+            justify-content: space-around;
+            -webkit-justify-content: space-around;
+            flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+            align-content: space-between;
+            -webkit-align-content: space-between;
+
+        }
+        .flex-item{
+            background: tomato;
+            padding: 5px;
+            width: 200px;
+            height: 150px;
+            margin-top: 10px;
+
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+            font-size: 3em;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+<!--<div class="flex">-->
+    <!--<div>uno</div>-->
+    <!--<div>due</div>-->
+    <!--<div>tre</div>-->
+<!--</div>-->
+<ul class="flex-container">
+    <li class="flex-item">1</li>
+    <li class="flex-item">2</li>
+    <li class="flex-item">3</li>
+    <li class="flex-item">4</li>
+    <li class="flex-item">5</li>
+    <li class="flex-item">6</li>
+</ul>
+</body>
+</html>

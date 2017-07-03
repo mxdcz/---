@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .li {
+            list-style: none;
+            width: 32px;
+            height: 32px;
+            background: #fff url(images/star.png) 0 0 no-repeat;
+            float: left;
+        }
+
+        .selected {
+            background: #fff url(images/star.png) 0 -33px no-repeat;
+        }
+    </style>
+</head>
+<body>
+<ul class="ul">
+    <li class="li"></li>
+    <li class="li"></li>
+    <li class="li"></li>
+    <li class="li"></li>
+    <li class="li"></li>
+</ul>
+<script>
+    var ul = document.getElementsByTagName("ul")[0];
+    var lis = document.getElementsByTagName("li");
+    var num = 0;
+    var items = [];
+    for (var i in lis) {
+        items.push(lis[i]);
+    }
+
+    var lightOn = function (num) {
+        items.forEach(function (value, index) {
+            if (num > index) {
+                value.classList.add("selected");
+            } else {
+                value.classList.remove("selected");
+            }
+        });
+    };
+
+    items.forEach(function (value, index) {
+        value.onmouseover = function () {
+            lightOn(index + 1);
+        };
+        value.onclick = function () {
+            num = index + 1;
+        };
+    });
+
+    ul.onmouseout = function () {
+        lightOn(num);
+    }
+
+
+</script>
+</body>
+</html>

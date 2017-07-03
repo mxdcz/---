@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ui-datepicker-wrapper {
+            width: 240px;
+            color: #666;
+            box-shadow: 2px 2px 8px 2px;
+            overflow: hidden;
+
+            display: none;
+            position: absolute;
+        }
+
+        .ui-datepicker-wrapper-show {
+            display: block;
+        }
+
+        .ui-datepicker-wrapper .ui-datepicker-header {
+            padding: 0 20px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .ui-datepicker-wrapper .ui-datepicker-header .ui-datepicker-btn {
+            text-decoration: none;
+            width: 20px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            color: #43b19d;
+        }
+
+        .ui-datepicker-wrapper .ui-datepicker-header .ui-datepicker-prebtn {
+            float: left;
+        }
+
+        .ui-datepicker-wrapper .ui-datepicker-header .ui-datepicker-nextbtn {
+            float: right;
+        }
+
+        .ui-datepicker-body table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .ui-datepicker-body table thead th,
+        .ui-datepicker-body table tbody td {
+            height: 30px;
+        }
+
+        .ui-datepicker-body table thead th {
+            height: 40px;
+        }
+
+        .ui-datepicker-body table tbody td {
+            border: 1px solid #f0f0f0;
+        }
+
+        .date-input {
+            width: 230px;
+            padding: 5px;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+    <!--<script src="common/common-lim.js"></script>-->
+</head>
+<body>
+<input type="text" class="date-input">
+<!--<div class="ui-datepicker-wrapper"></div>-->
+</body>
+<script>
+    /*ui组件编写:不能污染其他函数  ,所以使用匿名函数*/
+    (function () {
+        // 创建一个日历组件
+        var datepicker = {};
+        // 日历组件是否打开状态,默认关闭
+        var isOpen = false;
+
+        var that = null;
+        // 日历组件初始化
+        datepicker.init = function () {
+            that = this;
+            if (isOpen) {
+                var datepickerWrapper = document.querySelector(".ui-datepicker-wrapper");
+                datepickerWrapper.classList.remove("ui-datepicker-wrapper-show");
+                isOpen = false;
+                return;
+            } else {
+                isOpen = true;
+                /*计算日历的位置*/
+                var left = this.offsetLeft;
+                var top = this.offsetTop + this.offsetHeight + 3 + "px";
+
+
+                /* 调用组件方法,取数据并渲染日历*/
+                var parent = document.createElement("div");
+                parent.className = "ui-datepicker-wrapper";
+                parent.classList.add("ui-datepicker-wrapper-show");
+                parent.style.left = left;
+                parent.style.top = top;
+                var dates = datepicker.getMonthDate("2017", "5");
+                datepicker.render(parent, dates);
+
+
+            }
+
+
+        }
+
+
+        /*
+         * 渲染日历
+         * parent 在初始化的时候生成了一个父元素,用于存放日历
+         * dates  当前年月的数据
+         * */
+        datepicker.render = function (parent, dates) {
+            var html = '<div class="ui-datepicker-header">' +
+                    '<a href="#" class="ui-datepicker-btn ui-datepicker-prebtn">&lt;</a>' +
+                    '<a href="#" class="ui-datepicker-btn ui-datepicker-nextbtn">&gt;</a>' +
+                    '<span class="ui-datepicker-cur-month">' + dates.thisYear + '-' + dates.thisMonth + '</span>' +
+                    '</div>' +
+                    '<div class="ui-datepicker-body">' +
+                    '<table>' +
+                    '<thead>' +
+                    '<tr>' +
+                    '<th>日</th>' +
+                    '<th>一</th>' +
+                    '<th>二</th>' +
+                    '<th>三</th>' +
+                    '<th>四</th>' +
+                    '<th>五</th>' +
+                    '<th>六</th>' +
+                    '</tr>' +
+                    '</thead>' +
+                    '<tbody>';
+
+            for (var i = 0; i < dates.thisDates.length; i++) {
+                if (i % 7 === 0) {
+                    html += '<tr>';
+                }
+                html += '<td>' + dates.thisDates[i].showDate + '</td>';
+                if (i % 7 === 6) {
+                    html += '</tr>';
+                }
+
+            }
+
+
+            html += '</tbody>' +
+                    '</table>' +
+                    '</div>';
+
+            parent.innerHTML = html;
+
+            /*多次点击会产生多个日历,判断并删除*/
+            var datepickerWrapper = document.querySelector(".ui-datepicker-wrapper");
+            if (datepickerWrapper) {
+                datepickerWrapper.parentNode.removeChild(datepickerWrapper);
+            }
+            document.body.appendChild(parent);
+
+            // 左按钮
+            var prebtn = document.querySelector(".ui-datepicker-prebtn");
+            // 右按钮
+            var nextbtn = document.querySelector(".ui-datepicker-nextbtn");
+            // 给左按钮,右按钮绑定点击事件
+            prebtn.onclick = function () {
+                preMonth(parent, dates);
+            };
+            nextbtn.onclick = function () {
+                nextMonth(parent, dates);
+            }
+
+            var tds = parent.getElementsByTagName("td");
+            for (let i = 0; i, tds.length; i++) {
+                tds[i].addEventListener("click", function () {
+                    let oDate = new Date(dates.thisDates[i].showYear, dates.thisDates[i].showMonth, dates.thisDates[i].showDate);
+                    let year = oDate.getFullYear();
+                    let month = parseInt(oDate.getMonth()) + 1;
+                    let date = oDate.getDate();
+                    that.value = year + '-' + month + '-' + date;
+
+                    var datepickerWrapper = document.querySelector(".ui-datepicker-wrapper");
+                    datepickerWrapper.classList.remove("ui-datepicker-wrapper-show");
+                    isOpen = false;
+                }, false);
+            }
+        };
+
+        function preMonth(parent) {
+            var yearMonth = document.querySelector(".ui-datepicker-cur-month").innerText;
+            var index = yearMonth.indexOf("-");
+
+            var year = yearMonth.substring(0, index);
+            var month = yearMonth.substring(index + 1);
+            var preMonth = month - 1;
+            if (preMonth == 0) {
+                preMonth = 12;
+                year = year - 1;
+            }
+            var dates = datepicker.getMonthDate(year, preMonth);
+            datepicker.render(parent, dates);
+        }
+
+        function nextMonth(parent) {
+            var yearMonth = document.querySelector(".ui-datepicker-cur-month").innerText;
+            var index = yearMonth.indexOf("-");
+            var year = yearMonth.substring(0, index);
+            var month = yearMonth.substring(index + 1);
+            var preMonth = parseInt(month) + 1;
+            if (preMonth == 13) {
+                preMonth = 1;
+                year = parseInt(year) + 1;
+            }
+            var dates = datepicker.getMonthDate(year, preMonth);
+            datepicker.render(parent, dates);
+        }
+
+        /*
+         * 根据参数的年月,取得数据
+         * year  当前年
+         * month 当前月
+         * */
+        datepicker.getMonthDate = function (year, month) {
+            if (!year) year = new Date().getFullYear();
+            if (!month) month = new Date().getMonth() + 1;
+
+            year = parseInt(year);
+            month = parseInt(month);
+
+            var firstDate = new Date(year, month - 1, 1);
+            var firstDateInWeek = firstDate.getDay();
+
+            var showDates = {};
+            var dateArr = [];
+            for (var i = 0; i < 7 * 6; i++) {
+                var j = i + 1 - firstDateInWeek;
+                var date = new Date(year, month - 1, j);
+                var rtn = {};
+                rtn.showYear = date.getFullYear();
+                rtn.showMonth = date.getMonth();
+                rtn.showDate = date.getDate();
+
+
+                dateArr.push(rtn);
+            }
+            showDates.thisYear = year;
+            showDates.thisMonth = month;
+            showDates.thisDates = dateArr;
+            return showDates;
+        };
+
+
+        /*
+         * 将日历组件返回
+         * */
+        window.datepicker = datepicker;
+    })();
+</script>
+<script>
+    var dateInput = document.querySelector(".date-input");
+    dateInput.onclick = datepicker.init;
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 
+1.使用input radio 或checkbox 的checked来模拟单击 
+2.使用兄弟选择器,保证一次只有一个item被触发
+3.radio组要name相同才有点击一个其他收缩的效果
+-->
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		input[type="radio"]{
+			display: none;
+		}
+		input[type="radio"]+label {
+			display: block;
+			width: 500px;
+			height: 50px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			overflow: hidden;
+			margin-bottom: 5px;
+			transition: height .5s;
+		}
+		input[type="radio"]:checked+label {
+			height: 250px;
+			transition: height .5s;
+		}
+		.sub1{
+			width: 500px;
+			height: 50px;
+			border: 1px solid #ccc;
+			background: #f0f0f0;
+			margin-left: -1px;
+			margin-top: -1px;
+		}
+		.sub2{
+			width: 500px;
+		}
+		
+	</style>
+</head>
+<body>
+<!-- item1 -->
+	<input type="radio" id="r1" name="ra">
+	<label class="item" for="r1">
+		<div class="sub1">item1</div>
+		<div class="sub2">i am item's sub</div>
+	</label>
+
+<!-- item2 -->
+	<input type="radio" id="r2" name="ra">
+	<label class="item" for="r2">
+		<div class="sub1">item2</div>
+		<div class="sub2">i am item's sub</div>
+	</label>
+
+<!-- item3 -->
+	<input type="radio" id="r3" name="ra">
+	<label class="item" for="r3">
+		<div class="sub1">item3</div>
+		<div class="sub2">i am item's sub</div>
+	</label>
+</body>
+</html>

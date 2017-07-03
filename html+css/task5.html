@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+        form, fieldset, input, textarea, p, blockquote, th, td {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            background: #dddddd;
+        }
+
+        .box .top {
+            width: 100%;
+            height: 100px;
+            background: #333333;
+        }
+
+        .box .top .left {
+            float: left;
+        }
+
+        .box .top .left img {
+            width: 100px;
+            height: 100px;
+            margin-left: 50px;
+        }
+
+        .box .top .right {
+            float: right;
+        }
+
+        .box .top .right ul {
+            /*width: 500px;*/
+            height: 100px;
+            line-height: 100px;
+            margin-right: 20px;
+        }
+
+        .box .top .right ul li {
+            float: left;
+            margin-left: 25px;
+        }
+
+        .box .top .right ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .content {
+            /*height: 2500px;*/
+            /*background: #fff;*/
+            position: relative;
+        }
+
+        .content .title1 {
+            /*width: 1200px;*/
+            /*height: 500px;*/
+            background: #fff;
+            margin: 50px auto;
+            padding: 50px 30px;
+            box-sizing: border-box;
+        }
+
+        .content .title1 h1, h2, h3 {
+            margin-bottom: 10px;
+        }
+
+        .content .title1 h2 {
+            color: #b2b5b7;;
+        }
+
+        .content .title1 h3 {
+            color: #d3d6d8;;
+        }
+
+        .content .title1 p {
+            text-indent: 2em;
+            line-height: 30px;
+        }
+
+        .content .title2 {
+            /*width: 1200px;*/
+            /*height: 500px;*/
+            background: #fff;
+            margin: 50px auto;
+            padding: 50px 30px;
+            box-sizing: border-box;
+        }
+
+        .content .title2 h1, h2, h3 {
+            margin-bottom: 10px;
+        }
+
+        .content .title2 h2 {
+            color: #b2b5b7;;
+        }
+
+        .content .title2 h3 {
+            color: #d3d6d8;;
+        }
+
+        .content .title2 p {
+            text-indent: 2em;
+            line-height: 30px;
+        }
+
+        .content .title2 ul {
+            list-style: none;
+        }
+
+        .content .photo {
+            /*width: 1200px;*/
+            /*height: 500px;*/
+            background: #fff;
+            margin: 50px auto;
+            padding: 50px 30px;
+            box-sizing: border-box;
+        }
+
+        .content .photo .imgborder {
+            width: 150px;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            /*margin-right: 10px;*/
+
+            display: inline-block;
+        }
+
+        .content .photo .imgborder img {
+            width: 125px;
+            margin-top: 10px;
+            /*height: 100px;*/
+        }
+
+        .content .title3 {
+            /*width: 1200px;*/
+            height: 500px;
+            background: #fff;
+            margin: 50px auto;
+            padding: 50px 30px;
+            box-sizing: border-box;
+        }
+
+        .content .title3 h1, h2, h3 {
+            margin-bottom: 10px;
+        }
+
+        .content .title3 h2 {
+            color: #b2b5b7;;
+        }
+
+        .content .title3 h3 {
+            color: #d3d6d8;;
+        }
+
+        .content .title3 ol {
+            margin-left: 50px;
+            margin-bottom: 20px;
+        }
+
+        .content .title3 table {
+            border-collapse: collapse;
+            /*box-sizing: border-box;*/
+            width: 100%;
+            height: 200px;
+            font-size: 90%;
+        }
+
+        .content .title3 table tr:nth-child(1) {
+            background: #000;
+            color: #fff;
+        }
+
+        .content .title3 table tr:nth-child(5) {
+            background: #ccc;
+
+        }
+
+        .content .title3 td {
+            border: 1px solid #ccc;
+            padding-left: 10px;
+        }
+
+        .content .conleft {
+            margin-left: 20px;
+            margin-right: 460px;
+        }
+
+        .content .conright {
+            width: 420px;
+            position: absolute;
+            right: 20px;
+            top: 0;
+            /*float: right;*/
+
+        }
+
+        .content .form {
+            width: 100%;
+            /*height: 500px;*/
+            background: #fff;
+            /*margin: 50px auto;*/
+            /*padding: 50px 30px;*/
+            box-sizing: border-box;
+        }
+
+        .content .form h3 {
+            border-left: 3px solid #ccc;
+            padding-left: 10px;
+        }
+
+        .content .form .rows {
+            width: 100%;
+        }
+
+        .content .form .rows .rowleft {
+            width: 135px;
+            height: 40px;
+            display: table-cell;
+            text-align: right;
+            vertical-align: middle;
+        }
+
+        .content .form .rows .rowright {
+            /*width: 60%;*/
+            height: 40px;
+            padding-left: 30px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .content .form .rows .rowright span {
+            color: #d3d3d3;
+        }
+
+        .content .form .commit {
+            width: 100%;
+            height: 40px;
+            background: #0d0cc6;
+            font-size: 18px;
+            color: #fff;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .content .form .inputsize {
+            height: 20px;
+        }
+
+        .foot {
+            width: 100%;
+            height: 100px;
+            background: #000;
+            padding-top: 20px;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <div class="left">
+            <img src="images/top_bg.png">
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="javascript:">导航链接一</a></li>
+                <li><a href="javascript:">导航链接二</a></li>
+                <li><a href="javascript:">导航链接三</a></li>
+                <li><a href="javascript:">导航链接四</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="conleft">
+            <div class="title1">
+                <h1>文章一级标题</h1>
+                <h2>文章二级标题</h2>
+                <h3>文章作者 文章发表时间</h3>
+                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>
+                    这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>
+                    这是一个很长很长的段落，这是一个很长很长的段落，<a
+                            href="">这里有一个链接链接到http://ife.baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，<strong>这里有个粗体字</strong>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.
+                </p>
+                <img src="images/top_bg.png">
+                <p>
+                    这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>
+                    这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这里有个粗体字这是一个很长很长的段落，这是一个很长很长的段落，<a href="">这里有一个链接点击后打开新窗口链接到http://ife.baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。
+                </p>
+            </div>
+            <div class="title2">
+                <h1>文章一级标题</h1>
+                <h2>文章二级标题</h2>
+                <h3>文章作者 文章发表时间</h3>
+                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>
+                    这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br>
+                    这是一个很长很长的段落，这是一个很长很长的段落，<a
+                            href="">这里有一个链接链接到http://ife.baidu.com</a>这是一个很长很长的段落，这是一个很长很长的段落，<strong>这里有个粗体字</strong>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.
+                </p>
+                <img src="images/top_bg.png">
+                <ul>
+                    <li>列表项目一</li>
+                    <li>列表项目二</li>
+                    <li>列表项目三</li>
+                </ul>
+            </div>
+            <div class="photo">
+                <h1>图片</h1>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+                <div class="imgborder">
+                    <p>好看的图片</p>
+                    <img src="images/example.jpg">
+                </div>
+            </div>
+            <div class="title3">
+                <h1>最后一篇文章一级标题</h1>
+                <h2>文章二级标题</h2>
+                <h3>文章作者 文章发表时间</h3>
+                <ol>
+                    <li>排名1</li>
+                    <li>排名2</li>
+                    <li>排名3</li>
+                </ol>
+                <p>下面是一个表格，我在这里给表格加了一个border="1"好让你看出是一个表格，你们不用写html时候不用加</p>
+                <table>
+                    <tr>
+                        <td>表头</td>
+                        <td>表头</td>
+                        <td>表头</td>
+                    </tr>
+                    <tr>
+                        <td>表内容单元格</td>
+                        <td>表内容单元格</td>
+                        <td><a href="">操作</a></td>
+                    </tr>
+                    <tr>
+                        <td>表内容单元格</td>
+                        <td>表内容单元格</td>
+                        <td><a href="">操作</a></td>
+                    </tr>
+                    <tr>
+                        <td>表内容单元格</td>
+                        <td>表内容单元格</td>
+                        <td><a href="">操作</a></td>
+                    </tr>
+                    <tr>
+                        <td>总计</td>
+                        <td>1000</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="conright">
+            <div class="form">
+                <h3>这里以后是一个侧栏，这是侧栏的标题</h3>
+                <form action="">
+                    <div class="rows">
+                        <div class="rowleft">
+                            <label for="">请输入邮箱地址</label>
+                        </div>
+                        <div class="rowright">
+                            <input type="text" class="inputsize" value="这是一个文本输入框">
+                        </div>
+                    </div>
+                    <div class="rows">
+                        <div class="rowleft"></div>
+                        <div class="rowright">
+                            <span>邮箱地址请按要求格式输入</span>
+                        </div>
+                    </div>
+                    <div class="rows">
+                        <div class="rowleft">
+                            <label for="">请输入密码</label>
+                        </div>
+                        <div class="rowright">
+                            <input type="password" class="inputsize">
+                        </div>
+                    </div>
+                    <div class="rows">
+                        <div class="rowleft">
+                            <label for="">请重复输入密码</label>
+                        </div>
+                        <div class="rowright">
+                            <input type="password" class="inputsize">
+                        </div>
+                    </div>
+
+                    <div class="rows">
+                        <div class="rowleft"></div>
+                        <div class="rowright">
+                            <span>密码请为6-16位英文数字</span>
+                        </div>
+                    </div>
+                    <div class="rows">
+                        <div class="rowleft">
+                            <label for="">性别</label>
+                        </div>
+                        <div class="rowright">
+                            <input type="radio" name="sex" value="男" checked="checked">男
+                            <input type="radio" name="sex" value="女">女
+                        </div>
+                    </div>
+                    <div class="rows">
+                        <div class="rowleft">
+                            <label for="">城市</label>
+                        </div>
+                        <div class="rowright">
+                            <select name="city" id="">
+                                <option value="北京">北京</option>
+                                <option value="上海">上海</option>
+                                <option value="杭州">杭州</option>
+                                <option value="闹村">闹村</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rows">
+                        <div class="rowleft">
+                            <label for="">爱好</label>
+                        </div>
+                        <div class="rowright">
+                            <input type="checkbox" name="like" value="运动">运动
+                            <input type="checkbox" name="like" value="艺术">艺术
+                            <input type="checkbox" name="like" value="科学">科学
+                        </div>
+                    </div>
+                    <div class="rows">
+                        <div class="rowleft" style="vertical-align: top">
+                            <label for="">个人描述</label>
+                        </div>
+                        <div class="rowright">
+                            <textarea name="" cols="30" rows="7">这时一个多行输入框,输入你的个人描述</textarea>
+                        </div>
+                    </div>
+
+                    <input type="submit" class="commit" value="确认提交">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+        版权所有©
+    </div>
+</div>
+</body>
+</html>

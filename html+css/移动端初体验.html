@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Web App */
+        body {
+            font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+            background: #ccc;
+        }
+
+        header {
+            width: 100%;
+            line-height: 50px;
+            background: #90d3d9;
+            color: #fff;
+
+            text-align: center;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #fff;
+
+            position: absolute;
+            left: 10px;
+            outline: none;
+        }
+
+        nav {
+            display: flex;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            background: #fff;
+            /*align-items: center; 文字垂直居中还是使用line-height,align-items会使子元素高度无效*/
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            flex: 1;
+            text-align: center;
+        }
+
+        nav a:hover {
+            border-bottom: 3px solid #90d3d9;
+        }
+
+        #img {
+            background: #fff;
+        }
+
+        #img img {
+            width: 100%;
+        }
+
+        #label {
+            display: flex;
+            width: 100%;
+            /*margin-top: 10px;*/
+            background: #fff;
+        }
+
+        #label .lbl-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        #label .lbl-img img {
+            width: 50%;
+        }
+
+        #hr-line {
+            padding: 10px;
+            height: 22px;
+            box-sizing: border-box;
+            /*text-align: center;*/
+            background: #fff;
+            border: none;
+        }
+
+        hr {
+            width: 100%;
+            /*margin: 10px auto;*/
+        }
+
+        #subfield {
+            display: flex;
+            width: 100%;
+            margin-bottom: 10px;
+            background: #fff;
+            padding-bottom: 10px;
+        }
+
+        #subfield .sub1 {
+            flex: 1;
+            text-align: center;
+        }
+
+        #subfield .sub1 img {
+            width: 100%;
+        }
+
+        #subfield .sub2 {
+            flex: 1;
+            text-align: center;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+
+        #subfield .sub2 img {
+            width: 100%;
+        }
+
+        #subfield .sub3 {
+            flex: 1;
+            text-align: center;
+        }
+
+        #subfield .sub3 img {
+            width: 100%;
+        }
+
+        #module .module1 {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #fff;
+            margin-bottom: 10px;
+        }
+
+        #module .module1 h1 {
+            border-bottom: 1px solid #000;
+            margin-bottom: 10px;
+        }
+
+        #module .module1 .copy {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #module .module1 .copy .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            margin-right: 10px;
+        }
+
+        #module .module1 .copy .left img {
+            width: 100%;
+        }
+
+        #module .module1 .copy .left img#m1-img1 {
+            margin-bottom: 10px;
+        }
+
+        #module .module1 .copy .center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            margin-right: 10px;
+        }
+
+        #module .module1 .copy .center div {
+            width: 100%;
+            height: 43px;
+            background: #ccc;
+            line-height: 43px;
+            text-align: center;
+
+        }
+
+        #module .module1 .copy .right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        #module .module1 .copy .right div {
+            width: 100%;
+            height: 43px;
+            background: #ccc;
+            line-height: 43px;
+            text-align: center;
+        }
+
+        #module .module2 {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #fff;
+        }
+
+        #module .module2 h1 {
+            border-bottom: 1px solid #000;
+            margin-bottom: 10px;
+        }
+
+        #module .module2 .copy {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #module .module2 .copy .left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            margin-right: 10px;
+        }
+
+        #module .module2 .copy .left img {
+            width: 100%;
+        }
+
+        #module .module2 .copy .left img#m1-img1 {
+            margin-bottom: 10px;
+        }
+
+        #module .module2 .copy .center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            margin-right: 10px;
+        }
+
+        #module .module2 .copy .center div {
+            width: 100%;
+            height: 43px;
+            background: #ccc;
+            line-height: 43px;
+            text-align: center;
+
+        }
+
+        #module .module2 .copy .right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        #module .module2 .copy .right div {
+            width: 100%;
+            height: 43px;
+            background: #ccc;
+            line-height: 43px;
+            text-align: center;
+        }
+
+        #module > a {
+            /*display: block;*/
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background: #fff;
+        }
+        #module > a.content3{
+            display: block;
+            width: 100%;
+        }
+
+        #module .content1 .c1-img {
+            display: inline-block;
+            width: 30%;
+            margin-right: 10px;
+        }
+
+        #module .content1 .c1-img img {
+            width: 100%;
+        }
+
+        #module .content1 .c1 {
+            display: flex;
+            width: 70%;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #module .content1 .c1 p {
+            margin-bottom: 2px;
+        }
+
+        #module .content2 .c2-img {
+            display: inline-block;
+            width: 30%;
+            margin-right: 10px;
+        }
+
+        #module .content2 .c2-img img {
+            width: 100%;
+        }
+
+        #module .content2 .c2 {
+            display: flex;
+            width: 70%;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #module .content2 .c2 p {
+            margin-bottom: 2px;
+        }
+        #module .content3 .c3-img{
+            display: flex;
+            width:100%;
+            /*height:50px;*/
+            flex-direction:row;
+            justify-content:space-between;
+        }
+        #module .content3 .c3-img>div{
+            /*flex: 1;*/
+            width: 32%;
+        }
+        #module .content3 .c3-img>div img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a href="javascript:"> &lt;返回</a>
+    这是标题
+</header>
+<nav>
+    <a href="javascript:">导航</a>
+    <a href="javascript:">导航</a>
+    <a href="javascript:">导航</a>
+    <a href="javascript:">导航</a>
+    <a href="javascript:">导航</a>
+</nav>
+<section id="img">
+    <img src="images/task11_beer.jpg">
+</section>
+<section id="label">
+    <div class="lbl-img">
+        <img src="images/task11_label.png">
+        <div>标签</div>
+    </div>
+    <div class="lbl-img">
+        <img src="images/task11_label.png">
+        <div>标签</div>
+    </div>
+    <div class="lbl-img">
+        <img src="images/task11_label.png">
+        <div>标签</div>
+    </div>
+    <div class="lbl-img">
+        <img src="images/task11_label.png">
+        <div>标签</div>
+    </div>
+    <div class="lbl-img">
+        <img src="images/task11_label.png">
+        <div>标签</div>
+    </div>
+</section>
+<section id="hr-line">
+    <hr>
+</section>
+<section id="subfield">
+    <div class="sub1">
+        <img src="images/task11_grid1.jpg">
+        <h1>分栏1</h1>
+        <h3>分栏小标题</h3>
+    </div>
+    <div class="sub2">
+        <img src="images/task11_grid2.jpg">
+        <h1>分栏1</h1>
+        <h3>分栏小标题</h3>
+    </div>
+    <div class="sub3">
+        <img src="images/task11_grid3.jpg">
+        <h1>分栏1</h1>
+        <h3>分栏小标题</h3>
+    </div>
+</section>
+<section id="module">
+    <div class="module1">
+        <h1>模块1</h1>
+        <div class="copy">
+            <div class="left">
+                <img id="m1-img1" src="images/task11_bearbh.jpg">
+                <img src="images/task11_bearbh.jpg">
+            </div>
+            <div class="center">
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+            </div>
+            <div class="right">
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+            </div>
+        </div>
+    </div>
+    <div class="module2">
+        <h1>模块2</h1>
+        <div class="copy">
+            <div class="left">
+                <img id="m2-img1" src="images/task11_bearbh.jpg">
+                <img src="images/task11_bearbh.jpg">
+            </div>
+            <div class="center">
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+            </div>
+            <div class="right">
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+                <div class="copy-content">这是文案</div>
+            </div>
+        </div>
+    </div>
+    <a class="content1">
+        <div class="c1-img">
+            <img src="images/task11_c_bear.jpg">
+        </div>
+        <div class="c1">
+            <h5>这是文章标题这是文章标题这是文章标题这是文章标题</h5>
+            <p>文章来源 6分钟前</p>
+        </div>
+    </a>
+    <a class="content2">
+        <div class="c2-img">
+            <img src="images/task11_c_bear.jpg">
+        </div>
+        <div class="c2">
+            <h5>这是文章标题这是文章标题这是文章标题这是文章标题</h5>
+            <p>文章来源 6分钟前</p>
+        </div>
+    </a>
+    <a class="content3">
+        <h5>这是文章标题这是文章标题这是文章标题这是文章标题</h5>
+        <div class="c3-img">
+            <div><img src="images/task11_c_bear.jpg"></div>
+            <div><img src="images/task11_c_bear.jpg"></div>
+            <div><img src="images/task11_c_bear.jpg"></div>
+        </div>
+        <p>文章来源 6分钟前</p>
+    </a>
+</section>
+
+</body>
+</html>

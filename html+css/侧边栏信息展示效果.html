@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*body{*/
+        /*font-size: 12px;*/
+        /*line-height: 1.2;*/
+        /*}*/
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .sidebar {
+            width: 50px;
+            height: 100%;
+            background: #222222;
+            /*
+                TODO:居中显示
+            */
+            padding-top: 200px;
+
+            position: fixed;
+            left: 0;
+            top: 0;
+            /*display: none;*/
+        }
+
+        .sidebar-move-left {
+             -webkit-animation: sml 1s;
+             -o-animation: sml 1s;
+             animation: sml 1s forwards;
+         }
+        .sidebar-move-right {
+            -webkit-animation: smr 1s forwards;
+            -o-animation: smr 1s forwards;
+            animation: smr 1s forwards;
+        }
+
+        @keyframes sml {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -50px;
+            }
+        }
+        @keyframes smr {
+            0% {
+                left: -50px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        .sidebar .item {
+            text-align: center;
+            color: #d1d1d1;
+            cursor: pointer;
+        }
+
+
+        .sidebar .cls {
+            width: 100%;
+            text-align: center;
+            color: #d1d1d1;
+
+            position: absolute;
+            left: 0;
+            bottom: 30px;
+            cursor: pointer;
+
+        }
+
+        .sidebar .closebar-move-right {
+            left: 200px;
+            -webkit-animation: cmr 1s forwards;
+            -o-animation: cmr 1s forwards;
+            animation: cmr 1s forwards;
+        }
+        .sidebar .closebar-move-left {
+            left: 200px;
+            -webkit-animation: cml 1s forwards;
+            -o-animation: cml 1s forwards;
+            animation: cml 1s forwards;
+        }
+
+        @keyframes cmr {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 200px;
+                transform: rotate(405deg) scale(1.5);
+                color: #000;
+            }
+        }
+        @keyframes cml {
+            0% {
+                transform: rotate(405deg);
+            }
+            100% {
+                left: 0;
+                transform: rotate(0deg);
+            }
+        }
+
+        .info {
+            width: 150px;
+            height: 100%;
+            background: #ccc;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .menuContent-move-right{
+            -webkit-animation:mmr .5s forwards;
+            -o-animation:mmr .5s forwards;
+            animation:mmr .5s forwards;
+        }
+        @keyframes mmr {
+            from{
+                left:0;
+                opacity:0;
+            }
+            to{
+                left: 50px;
+                opacity: 1;
+            }
+        }
+        .info .pack-up {
+            width: 20px;
+            position: absolute;
+            right: 0px;
+            top: 0;
+            cursor: pointer;
+        }
+
+
+    </style>
+    <script src="common/common-lim.js"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="sidebar" class="sidebar">
+        <ul class="side-content">
+            <li id="me" class="item">
+                <span class="glyphicon glyphicon-user"></span>
+                <p>我</p>
+            </li>
+            <li id="money" class="item">
+                <span class="glyphicon glyphicon-usd"></span>
+                <p>资产</p>
+            </li>
+            <li id="heart" class="item">
+                <span class="glyphicon glyphicon-heart"></span>
+                <p>品牌</p>
+            </li>
+            <li id="bell" class="item">
+                <span class="glyphicon glyphicon-bell"></span>
+                <p>直播</p>
+            </li>
+            <li id="look" class="item">
+                <span class="glyphicon glyphicon-eye-open"></span>
+                <p>看过</p>
+            </li>
+            <li id="calendar" class="item">
+                <span class="glyphicon glyphicon-calendar"></span>
+                <p>日历</p>
+            </li>
+        </ul>
+        <div id="closebar" class="cls">
+            <span class="glyphicon glyphicon-remove"></span>
+        </div>
+    </div>
+    <div id="me_info" class="info">
+        <div class="pack-up">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </div>
+        我
+    </div>
+    <div id="money_info" class="info">
+        <div class="pack-up">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </div>
+        我的资产
+    </div>
+    <div id="heart_info" class="info">
+        <div class="pack-up">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </div>
+        品牌
+    </div>
+    <div id="bell_info" class="info">
+        <div class="pack-up">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </div>
+        看直播
+    </div>
+    <div id="look_info" class="info">
+        <div class="pack-up">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </div>
+        历史记录
+    </div>
+    <div id="calendar_info" class="info">
+        <div class="pack-up">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </div>
+        今天是几号?
+    </div>
+</div>
+</body>
+<script>
+    var Menubar = function () {
+        this.el = document.querySelector("#sidebar ul");
+        this.menuList = document.querySelectorAll("#sidebar ul>li");
+        this.state = 'allClosed';
+        this.tmpEl = null;
+        this.el.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+        var that = this;
+        for (var i = 0; i < this.menuList.length; i++) {
+            this.menuList[i].addEventListener('click', function (e) {
+                var menuContentEl = document.getElementById(e.currentTarget.id + '_info');
+
+                if (that.state === 'allClosed') {
+                    console.log('打开' + menuContentEl.id);
+                    menuContentEl.style.display = "block";
+                    menuContentEl.classList.add("menuContent-move-right");
+                    that.state = 'hasOpened';
+                } else {
+                    console.log('关闭' + that.tmpEl.id);
+                    that.tmpEl.style.display = "none";
+                    console.log('打开' + menuContentEl.id);
+                    menuContentEl.style.display = "block";
+                    menuContentEl.classList.add("menuContent-move-right");
+//                    that.state = 'allClosed';
+                }
+                that.tmpEl = menuContentEl;
+                var packUp = that.tmpEl.querySelector("div.pack-up");
+                packUp.onclick = function(){
+                    that.tmpEl.style.display = "none";
+                }
+            })
+        }
+    };
+
+    var Sidebar = function (eId, closeBarId) {
+        var that = this;
+        this.state = 'opened';
+        /*因为侧边栏元素太多,对其事件绑定会繁琐.所以使用事件代理
+        * el:父元素
+        * closeBarEl: 关闭侧边栏元素,这部分主要对这个元素设计*/
+        this.el = document.getElementById(eId || "sidebar");
+        this.closeBarEl = document.getElementById(closeBarId || "closebar");
+        this.menubar = new Menubar();
+        this.el.addEventListener("click", function (e) {
+            if (e.target !== that.el) {
+                that.triggerSwich();
+            }
+        })
+
+    };
+    Sidebar.prototype.triggerSwich = function () {
+        if (this.state === 'opened') {
+            this.close();
+        } else {
+            this.open();
+        }
+    };
+    Sidebar.prototype.close = function () {
+        console.log("close");
+        this.el.classList.remove("sidebar-move-right");
+        this.closeBarEl.classList.remove("closebar-move-left");
+
+        this.el.classList.add("sidebar-move-left");
+        this.closeBarEl.classList.add("closebar-move-right");
+        this.state = 'closed';
+    };
+    Sidebar.prototype.open = function () {
+        console.log("open");
+        this.el.classList.remove("sidebar-move-left");
+        this.closeBarEl.classList.remove("closebar-move-right");
+
+        this.el.classList.add("sidebar-move-right");
+        this.closeBarEl.classList.add("closebar-move-left");
+        this.state = 'opened';
+
+    };
+
+
+
+    var sidebar = new Sidebar();
+</script>
+</html>

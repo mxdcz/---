@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size:12px;
+        }
+        .box{
+            width: 298px;
+            height: 98px;
+            margin: 10px;
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+        .title{
+            height: 27px;
+            background:#f7f7f7;
+
+            position: relative;
+        }
+        .title ul{
+            list-style:none;
+
+            width:300px;/* 本来298 但是两端hover的时候会显示两条边框.解决:加2px让box的overfow给盖掉*/
+            position: absolute;
+            left: -1px;
+        }
+        .title ul li{
+            float: left;
+            width: 58px;/* 300/5 =60 - 左右边框1 =58       */
+            height: 26px;
+            padding: 0 1px;/* 假定左右边框1px,hover时还原为0 */
+            line-height:26px;
+            text-align: center;
+            /*background: #fff;*/
+            border-bottom: 1px solid #eee;
+
+        }
+        .title ul li:hover{
+            background: #fff;
+            border-bottom: 1px solid #fff;
+            border-left: 1px solid #eee;
+            border-right: 1px solid #eee;
+            padding: 0;
+        }
+        .content .mod{
+            margin: 10px;
+            display: none;
+        }
+        .content .mod ul{
+            list-style:none;
+        }
+        .content .mod ul li{
+            float: left;
+            width: 139px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="title">
+        <ul>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="mod">
+            <ul>
+                <li>我是块1我是块1我是块1我是块1</li>
+                <li>我是块1我是块1我是块1我是块1</li>
+                <li>我是块1我是块1我是块1我是块1</li>
+                <li>我是块1我是块1我是块1我是块1</li>
+            </ul>
+        </div>
+        <div class="mod">
+            <ul>
+                <li>我是块2</li>
+                <li>我是块1</li>
+                <li>我是块1</li>
+                <li>我是块1</li>
+            </ul>
+        </div>
+        <div class="mod">
+            <ul>
+                <li>我是块3</li>
+                <li>我是块1</li>
+                <li>我是块1</li>
+                <li>我是块1</li>
+            </ul>
+        </div>
+        <div class="mod" style="display: block">
+            <ul>
+                <li>我是块4</li>
+                <li>我是块1</li>
+                <li>我是块1</li>
+                <li>我是块1</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function $(id){
+        return typeof id==='string'? document.getElementById(id):id;
+    }
+    
+</script>
+</html>

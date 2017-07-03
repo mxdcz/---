@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap div {
+            width: 500px;
+            height: 500px;
+            border: 2px solid #000;
+
+            margin: 2px auto;
+        }
+
+        ul {
+            list-style: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        ul li {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        ul li.selected {
+            background: red;
+        }
+    </style>
+    <script src="common/common-lim.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div id="oneF">1F</div>
+    <div id="twoF">2F</div>
+    <div id="threeF">3F</div>
+    <div id="fourF">4F</div>
+    <div id="fiveF">5F</div>
+</div>
+<ul class="ul">
+    <li class="selected"><a href="#oneF">1F</a></li>
+    <li><a href="#twoF">2F</a></li>
+    <li><a href="#threeF">3F</a></li>
+    <li><a href="#fourF">4F</a></li>
+    <li><a href="#fourF">5F</a></li>
+    <li><a href="#">TOP</a></li>
+</ul>
+</body>
+<script>
+    var oneH = document.getElementById("oneF").offsetTop;
+    var twoH = document.getElementById("twoF").offsetTop;
+    var threeH = document.getElementById("threeF").offsetTop;
+    var fourH = document.getElementById("fourF").offsetTop;
+    var fiveH = document.getElementById("fiveF").offsetTop;
+    var lis = document.getElementsByTagName("li");
+
+    window.onscroll = function () {
+        for (var key in lis) {
+            lis[key].className = "";
+        }
+
+        var bH = document.body.scrollTop;
+        if (bH >= fiveH - 200) {
+            lis[4].className = "selected";
+        } else if (bH >= fourH - 200) {
+            lis[3].className = "selected";
+        } else if (bH >= threeH - 200) {
+            lis[2].className = "selected";
+        } else if (bH >= twoH - 200) {
+            lis[1].className = "selected";
+        } else if (bH > oneH - 200) {
+            lis[0].className = "selected";
+        }
+
+    }
+</script>
+</html>

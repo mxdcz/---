@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #5d5d5d;
+
+        }
+
+        .box {
+            width: 980px;
+            height: 1386px;
+            background: #fff;
+            margin: 0 auto;
+            padding-left: 44px;
+            padding-right: 44px;
+            box-sizing: border-box;
+        }
+
+        .box .top {
+            width: 892px;
+            height: 61px;
+            border-bottom: 2px solid #938e8c;
+
+            position: relative;
+        }
+
+        .box .top .red {
+            width: 110px;
+            height: 61px;
+            background: #d45d5c;
+            padding-top: 44px;
+            box-sizing: border-box;
+        }
+
+        .box .top .red p {
+            font: 12px "黑体";
+            color: #fff;
+            margin-left: 5px;
+        }
+
+        .box .top > p {
+            font: 12px "黑体";
+            color: #d45d5c;
+            /*margin-left:5px;*/
+            /*float: right;*/
+            position: absolute;
+            right: 0;
+            bottom: 5px;
+        }
+
+        .box .content {
+            margin-top: 35px;
+        }
+
+        .box .content .contenttop {
+            width: 100%;
+            height: 301px;
+            /*background: #000;*/
+        }
+
+        .box .content .contenttop .logo {
+            width: 641px;
+            height: 301px;
+            background: url(images/task_6_logo.jpg) 0 0 no-repeat;
+            float: left;
+        }
+
+        .box .content .contenttop .logo .logoleft {
+            width: 191px;
+            height: 301px;
+            background: #428b59;
+            opacity: 0.5;
+            float: left;
+        }
+
+        .box .content .contenttop .logo .logoright {
+            width: 191px;
+            height: 301px;
+            background: #e4b9be;
+            opacity: 0.5;
+            float: right;
+        }
+
+        .box .content .contenttop .about {
+            width: 203px;
+            height: 299px;
+            border-top: 2px solid #cc8091;
+            float: right;
+        }
+
+        .box .content .contenttop .about > p:nth-child(1) {
+            font: 24px "微软雅黑";
+            text-decoration: underline;
+            line-height: 40px;
+            font-variant: small-caps;
+        }
+
+        .box .content .contenttop .about > p:nth-child(2) {
+            font: 12px "楷体";
+            line-height: 10px;
+            color: #676767;
+        }
+
+        .box .content .contenttop .about > p:nth-child(3) {
+            height: 140px;
+
+            font: 116px "微软雅黑";
+            color: #75b86b;
+            font-style: italic;
+        }
+
+        .box .content .contenttop .about > div {
+            font: 55px "微软雅黑";
+            color: #cc8091;
+
+            position: relative;
+        }
+
+        .box .content .contenttop .about > div > p {
+            font: 21px "微软雅黑";
+            color: #cc8091;
+
+            position: absolute;
+            left: 80px;
+            top: 20px;
+        }
+
+        .box .content .contenttop .about > div > p > span {
+            font: 12px "微软雅黑";
+            color: #ccc;
+
+            position: absolute;
+            left: 0;
+            top: 23px;
+        }
+
+        .box .content .contentmid {
+            margin-top: 35px;
+            height: 220px;
+        }
+
+        .box .content .contentmid div {
+            width: 210px;
+            float: left;
+            margin-right: 30px;
+        }
+
+        .box .content .contentmid div h3 {
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 5px;;
+        }
+
+        .box .content .contentmid div:nth-child(1) h3 {
+            color: #418c59;
+        }
+
+        .box .content .contentmid div:nth-child(2) h3 {
+            color: #d2994f;
+        }
+
+        .box .content .contentmid div:nth-child(3) h3 {
+            color: #cc7680;
+        }
+
+        .box .content .contentmid div .libody1 {
+            font: 12px "宋体";
+            color: #767777;
+            line-height: 16px;
+        }
+
+        .box .content .contentmid div .libody2 {
+            font-size: 12px;
+            color: #ccc;
+            line-height: 16px;
+        }
+
+        .box .content .contentmid div .libody3 {
+            font-size: 12px;
+            color: #cd4a48;
+            line-height: 16px;
+        }
+
+        .box .content .contentmid div .what {
+            margin-top: 20px;
+        }
+
+        .box .content .contentmid div .what span {
+            font-size: 12px;
+            color: #cd4a48;
+            font-style: italic;
+            line-height: 16px;
+            opacity: 0.7;
+        }
+
+        .box .content .contentbottom .bottomleft {
+            width: 415px;
+            height: 700px;
+            float: left;
+        }
+
+        .box .content .contentbottom .bottomleft .title {
+            border-bottom: 2px solid #11456b;
+            padding-bottom: 10px;
+            margin-bottom:20px;
+            box-sizing: border-box;
+        }
+
+        .box .content .contentbottom .bottomleft .title span:nth-child(1) {
+            font: 72px "黑体";
+            color: #f5e327;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .box .content .contentbottom .bottomleft .title span:nth-child(2) {
+            font: 42px "黑体";
+            color: #11456b;
+            font-weight: bold;
+            line-height: 16px;
+        }
+
+        .box .content .contentbottom .bottomleft .title span:nth-child(3) {
+            font: 33px "黑体";
+            color: #11456b;
+            font-weight: bold;
+        }
+        .box .content .contentbottom .bottomleft .body{
+            font:12px "宋体";
+            color: #767777;
+            line-height: 16px;
+
+        }
+        .box .content .contentbottom .bottomleft .body span{
+            font:70px "微软雅黑";
+            color: #f5e327;
+            float: left;
+            line-height:1;
+
+        }
+
+        .box .content .contentbottom .bottomleft .body p:nth-child(3),p:nth-child(4){
+            text-indent: 2em;
+
+        }
+
+        .box .content .contentbottom .bottomleft .body img{
+            float: right;
+            margin:20px 0 20px 20px;
+            box-sizing: border-box;
+        }
+
+        .box .content .contentbottom .bottomright {
+            width: 459px;
+            height: 700px;
+            float: right;
+            background: red;
+        }
+        .box .content .contentbottom .bottomright .righttop{
+            width: 458px;
+            height: 257px;
+            background:  url(images/task_1_6_1_03.jpg) 0 0 no-repeat;
+
+            position: relative;
+        }
+        .box .content .contentbottom .bottomright .righttop .black_op{
+            width: 458px;
+            height: 61px;
+            background: #000;
+            opacity: 0.4;
+            position: absolute;
+            bottom: 0;
+        }
+        .box .content .contentbottom .bottomright .righttop .black{
+            width: 458px;
+            height: 61px;
+
+            position: absolute;
+            bottom: 0;
+
+            padding-left: 40px;;
+            padding-top: 9px;;
+            box-sizing: border-box;
+        }
+        .box .content .contentbottom .bottomright .righttop .black p{
+            height: 44px;
+            border-left: 3px solid #72b16a;
+            line-height:44px;
+
+            padding-left:10px;
+        }
+        .box .content .contentbottom .bottomright .righttop .black span:nth-child(1){
+            font-size:26px;
+            color: #fff;
+        }
+        .box .content .contentbottom .bottomright .righttop .black span:nth-child(2){
+            font-size:12px;
+            color: #72b16a;
+            font-style: italic;
+            letter-spacing: 1.4em;
+        }
+        .box .content .contentbottom .bottomright .rightbottom{
+            width: 459px;
+            height: 318px;
+            background: #ededd5;
+
+            margin-top:50px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top">
+        <div class="red">
+            <p>ife.baidu.com</p>
+        </div>
+        <p>2016.03</p>
+    </div>
+    <div class="content">
+        <div class="contenttop">
+            <div class="logo">
+                <div class="logoleft"></div>
+                <div class="logoright"></div>
+            </div>
+            <div class="about">
+                <p>
+                    Abount
+                    Technologe
+                </p>
+
+                <p>
+                    About technologe about technologe
+                    about technologe
+                </p>
+
+                <p>700</p>
+                <div>3.2<p>css<br>
+                    <span>csscsscsscsscss</span>
+                </p>
+                </div>
+            </div>
+        </div>
+        <div class="contentmid">
+            <div>
+                <h3>What</h3>
+                <p class="libody1">
+                    前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端</p>
+            </div>
+            <div>
+                <h3>When</h3>
+                <p class="libody2">
+                    前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端</p>
+            </div>
+            <div>
+                <h3>How</h3>
+                <p class="libody3">
+                    前端前端前端前端前<br>
+                    前端前端前端前端前端前<br>
+                    前端前端前端前</p>
+                <p class="what">What--------<span>40%</span><br>
+                    What--------<span>40%</span><br>
+                    What--------<span>30%</span></p>
+            </div>
+        </div>
+        <div class="contentbottom">
+            <div class="bottomleft">
+                <div class="title">
+                    <p><span>THE</span><span> TECHNOLOGE<br>OF FRONT</span><span><br>前端技术领域</span></p>
+                </div>
+                <div class="body">
+                    <span>前</span>
+                    <p>端前端前端前端前端前端前端前端 前端前端前端前端前端前端前前端前端前端前端前端 前端前端前端前端前端前端前端前端前端 端前端前端前端前端前端前端前端前端前端 前端前端前端前端前端前端前端前端前端前端 前端前端前端前端前端前端前端前端前 前端前端前端前端前端前端前端前端前端  前端前端前端前端前端 前端前端前端前端前端前端前端前端前端 前端前端前端前端前端前端前端前端端前 端前端端前端前端前端前端前端前端前端 <img src="images/task_6_bottom-left.png">前端前端前端前端前端前端前端端前端前 端端前端前端前端前端前端前端前端前端 前端前端前端前端前端前端端前端前端端 前端前端前端前端前端前端前端前端前端 前端前端前端前端前端端前端前端端前端 前端前端前端前端前。</p>
+                    <p>端前端前端端前端前端前端前端前端 前端前端前端前端前端前端前端前端端前 端前端端前端前端前端前端前端前端前端 前端前端前端前端前端前端前端端前端前 端端前端前端前端前端前端前端前端前端 前端前端前端前端前端前端端前端前端端 前端前端前端前端前端前端前端前端前端 前端前端前端前端前端端前端前端端前端 前端前端前端前端前前端前端前端前端前 前端前端前端前端前端前端前端前端前端 前端前端前端前端前端前端前端前端前端 前端前端前端前端前端前端前端前端前端 前端前端前端前端前端前端前端前端前端</p>
+                    <p>前端前端前端前端前端前端前端前端前端前 端前端前端前端前端前端前端 端前端前端前端前端前端前端前端前 端前端前端前端端前端前端前端前端前端</p>
+                </div>
+            </div>
+            <div class="bottomright">
+                <div class="righttop">
+                    <div class="black_op"></div>
+                    <div class="black">
+                        <p><span> 前端技术</span><span> 前端技术前端技术</span></p>
+                    </div>
+                </div>
+                <div class="rightbottom">
+                    <div class="catalogue">
+                        <p>▲前端前端前端前端前端前端 ....................前端</p>
+                        <p>▲前端前端前端前端 .................................前端前</p>
+                        <p>▲前端前端前端前端前端前端前 .................前端</p>
+                    </div>
+                    <div class="red_block"></div>
+                    <div class="quotation">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="foot"></div>
+</div>
+</body>
+</html>
