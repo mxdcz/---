@@ -1,3 +1,4 @@
+Demo:https://mxdcz.github.io/projects-study/%E6%95%B0%E5%AD%97%E6%8B%BC%E5%9B%BE%E6%B8%B8%E6%88%8F/index.html
 ### 实现思路:
 - 首先确定每个块能够移动的位置(比如:第一块只能移动到第二块和第四块)
 ```
