@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="slider">
+    <div class="main" id="main">
+        <div class="main-i">
+            <img src="images/{index}.jpg">
+            <div class="caption">
+                <h2>{h2}</h2>
+                <h3>{h3}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="ctrl" id="ctrl">
+        <a class="ctrl-i" href="javascript:">
+            <img src="images/{index}.jpg">
+        </a>
+    </div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/ppt.js"></script>
+<script>
+    var slider = new Slider();
+</script>
+</body>
+</html>
