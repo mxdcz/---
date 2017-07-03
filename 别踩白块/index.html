@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 700px;
+        }
+
+        .box{
+            width: 404px;
+            height: 404px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .main {
+            width: 404px;
+            height: 404px;
+            border: 2px solid #ccc;
+            overflow: hidden;
+        }
+
+        .mask {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .8);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .mask button {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            font-size: 20px;
+            color: #fff;
+            width: 50px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto auto;
+        }
+
+        .mask button:hover {
+            font-size: 25px;
+            transition: all .5s;
+        }
+
+        .ctrl {
+            position: relative;
+            top: -100px;
+        }
+
+        .row {
+
+        }
+
+        .col {
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        .black {
+            background-color: #000;
+        }
+
+        .c::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+<div class="wrap">
+    <p class="score">分数:0</p>
+    <div class="box">
+        <div class="main">
+            <div class="ctrl"></div>
+        </div>
+        <div class="mask">
+            <button onclick="start()">开始</button>
+        </div>
+    </div>
+</div>
+<script src="./dist/src/index.js"></script>
+<script>
+    var BlockGame = index.default;
+    var blockGame = new BlockGame();
+    var start = function () {
+        blockGame.start();
+    };
+
+
+</script>
+</body>
+</html>
