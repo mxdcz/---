@@ -1,6 +1,6 @@
 # 学习过程中的实践小项目
 
-人机五子棋：demo https://mxdcz.github.io/projects-study/JS%E4%BA%94%E5%AD%90%E6%A3%8B/index.html
+人机五子棋：[demo](https://mxdcz.github.io/projects-study/JS%E4%BA%94%E5%AD%90%E6%A3%8B/index.html)
 
 别踩白块：demo https://mxdcz.github.io/projects-study/%E5%88%AB%E8%B8%A9%E7%99%BD%E5%9D%97/index.html
 
