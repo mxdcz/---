@@ -5,3 +5,6 @@
 别踩白块：[demo](https://mxdcz.github.io/projects-study/%E5%88%AB%E8%B8%A9%E7%99%BD%E5%9D%97/index.html)
 
 数字拼图游戏：[demo](https://mxdcz.github.io/projects-study/%E6%95%B0%E5%AD%97%E6%8B%BC%E5%9B%BE%E6%B8%B8%E6%88%8F/index.html)
+
+3d轮播图：[demo](https://mxdcz.github.io/projects-study/3D%E8%BD%AE%E6%92%AD%E5%9B%BE/index.html)
+
